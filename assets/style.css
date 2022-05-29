@@ -28,3 +28,46 @@
 .attribution a { 
     color: hsl(228, 45%, 44%); 
 }
+
+*::before, ::after {
+    box-sizing: board-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--radialGradient) no-repeat;
+    height: 100vh;
+    text-transform: uppercase;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 3px solid var(--headerOutline);
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.header > img {
+    width: 40%;
+}
+
+.score {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--scoreText);
+    background-color: #ffff;
+    padding: 5px 25px;
+    border-radius: 5px;
+    font-size: .7rem;
+}
+
+.score_counter {
+    color: var(--darkText);
+    font-size: 2.5rem;
+    font-weight: 800;
+}
