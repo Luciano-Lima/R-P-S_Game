@@ -19,8 +19,6 @@
     --radialGradient: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
 }
 
-
-
 .attribution { 
     font-size: 11px; text-align: center; 
 }
@@ -41,6 +39,7 @@ body {
     text-transform: uppercase;
 }
 
+/* header */
 .header {
     display: flex;
     align-items: center;
@@ -71,3 +70,42 @@ body {
     font-size: 2.5rem;
     font-weight: 800;
 }
+
+/* game container */
+.game {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    place-items: center;
+    grid-template-areas: 
+        'paper scissors'
+        'rock rock';
+    height: 20rem;
+}
+
+.choice-btn[data-selection="paper"] {
+    grid-area: paper;
+}
+
+.choice-btn[data-selection="scissors"] {
+    grid-area: scissors;
+}
+
+.choice-btn[data-selection="rock"] {
+    grid-area: rock;
+}
+
+.choice {
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.choice-btn {
+    border-radius: 50%;
+    padding: 10px;
+    background: #ffff;
+}
+
