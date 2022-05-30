@@ -34,6 +34,7 @@
 }
 
 body {
+    font-family: 'Barlow Semi Condensed',  Helvetica, sans-serif;
     background: var(--radialGradient) no-repeat;
     height: 100vh;
     text-transform: uppercase;
@@ -152,4 +153,36 @@ body {
     position: fixed;
     bottom: 50px;
     font-size: .8rem;
+}
+
+/* modal */
+.modal {
+    display: none;
+}
+
+.modal.show {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #d7d6d6;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.modal-header {
+    position: absolute;
+    top:50px;
+    color: #504a4a;
+}
+
+.close-modal-btn {
+    position: absolute;
+    bottom: 100px;
+    cursor: pointer;
+    border: none;
+    background:none;
 }
