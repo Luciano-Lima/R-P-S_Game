@@ -2,7 +2,7 @@
 
 :root {
     /* Primary */
-    --scissorsGradient:linear-gradient (hsl(39, 89%, 49%) to hsl(40, 84%, 53%));
+    --scissorsGradient:linear-gradient(hsl(39, 89%, 49%) to hsl(40, 84%, 53%));
     --paperGradient:linear-gradient( hsl(230, 89%, 62%) to hsl(230, 89%, 65%));
     --rockGradient:linear-gradient( hsl(349, 71%, 52%) to hsl(349, 70%, 56%));
     --lizardGradient:linear-gradient( hsl(261, 73%, 60%) to hsl(261, 72%, 63%));
@@ -83,16 +83,34 @@ body {
     height: 20rem;
 }
 
+.choice-btn {
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 20px;
+    background: #ffff;
+    /* box-shadow: inset 0px 3px 0px 1px #ced1d5; */
+}
+
 .choice-btn[data-selection="paper"] {
     grid-area: paper;
+    box-shadow: 0px 0px 0px 15px hsl(230, 89%, 66%), 
+                0px 5px 0px 15px hsl(230, 66%, 48%), 
+                inset 0px 3px 0px 1px hsl(0deg 0% 87%);
 }
 
 .choice-btn[data-selection="scissors"] {
     grid-area: scissors;
+    box-shadow: 0px 0px 0px 15px hsl(39, 89%, 49%), 
+                0px 5px 0px 15px  hsl(40, 84%, 40%), 
+                inset 0px 3px 0px 1px hsl(0deg 0% 87%);
 }
 
 .choice-btn[data-selection="rock"] {
     grid-area: rock;
+    box-shadow: 0px 0px 0px 15px hsl(349, 71%, 52%), 
+                0px 5px 0px 15px hsl(349, 70%, 40%), 
+                inset 0px 3px 0px 1px hsl(0deg 0% 87%);
 }
 
 .choice {
@@ -102,10 +120,3 @@ body {
     justify-content: center;
     align-items: center;
 }
-
-.choice-btn {
-    border-radius: 50%;
-    padding: 10px;
-    background: #ffff;
-}
-
