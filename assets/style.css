@@ -38,6 +38,9 @@ body {
     background: var(--radialGradient) no-repeat;
     height: 100vh;
     text-transform: uppercase;
+    color: #dad7d7;
+    letter-spacing: 1px;
+    font-size: .8rem;
 }
 
 .container {
@@ -116,6 +119,8 @@ body {
                 inset 0px 3px 0px 1px hsl(0deg 0% 87%);
 }
 
+
+
 .choice-btn[data-selection="scissors"] {
     grid-area: scissors;
     box-shadow: 0px 0px 0px 15px hsl(39, 89%, 49%), 
@@ -134,9 +139,58 @@ body {
     width: 3rem;
     height: 3rem;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
+/* game results */
+
+
+.game-results {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    grid-template-areas: 
+        'you house'
+        'results results'
+        'btn btn';
+    white-space: nowrap;
+    padding-top: 5rem;
+}
+
+.game-results p {
+    padding-top: 1.5rem;
+}
+
+
+.you-pick {
+    grid-area: you;
+}
+
+.comp-pick {
+    grid-area: house;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.player-results {
+    grid-area: results;
+    font-size: 2.5rem;
+    margin-top: 2.5rem;
+}
+
+.play-btn {
+    grid-area: btn;
+    padding: 15px 2.2rem;
+    border-radius: 10px;
+    border: none;
+    margin: 0.8rem;
+    text-transform: uppercase;
+    color: #606e85;
+}
+
 
 /* rules */
 .rules {
@@ -149,7 +203,6 @@ body {
     padding: 10px 45px;
     border-radius: 10px;
     color: #c5bbbb;
-    letter-spacing: 2px;
     position: fixed;
     bottom: 50px;
     font-size: .8rem;
