@@ -1,4 +1,5 @@
 const selectBtn = document.querySelectorAll('[data-selection]')
+const playerResults = document.getElementById('player-results')
 
 // selects user choice
 let userPick = selectBtn.forEach((e) => {
@@ -22,24 +23,35 @@ const playGame = () => {
 		case 'rockrock':
 		case 'paperpaper':
 		case 'scissorsscissors':
-			console.log('draw')
+			isDraw()
 			break
 		case 'rockscissors':
 		case 'paperrock':
 		case 'scissorspaper':
-			console.log('userWin')
+			userWins()
 			break
 		case 'rockpaper':
 		case 'paperscissors':
 		case 'scissorsrock':
-			console.log('computer wins')
+			compWins()
 			break
-		default:
-			console.log('nothing selected')
 	}
 	displayGameChoices(userPick, compPick)
 }
 
+const isDraw = () => {
+	playerResults.innerText = "it's a draw"
+}
+
+const userWins = () => {
+	playerResults.innerText = 'you win'
+}
+
+const compWins = () => {
+	playerResults.innerText = 'you lose'
+}
+
+// Show Player selections
 const displayGameChoices = (userPick, compPick) => {
 	const game = document.querySelector('.game')
 	const choices = document.querySelectorAll('.picked-choice')
@@ -47,28 +59,43 @@ const displayGameChoices = (userPick, compPick) => {
 	for (i = 0; i < choices.length; i++) {
 		game.style.display = 'none'
 		choices[0].innerHTML = `
-                <div class="choice chosen">
+                <div class="choice">
                     <button class="choice-btn" data-selection="${userPick}">
-                        <div class="choice chosen">
+                        <div class="choice">
                             <img src="./images/icon-${userPick}.svg" alt="${userPick}">
                         </div>
                     </button> 
                     <p>user picked</p>
                 </div>`
 		choices[1].innerHTML = `
-                <div class="choice chosen">
+                <div class="choice">
                     <button class="choice-btn" data-selection="${compPick}">
-                        <div class="choice chosen">
+                        <div class="choice">
                             <img src="./images/icon-${compPick}.svg" alt="${compPick}">
                         </div>
                     </button> 
                     <p>the house picked</p>
                 </div>`
-    }
-    resetBtn()
+	}
+	gameWinner()
+	resetBtn()
 }
 
+//Resets Game
 const resetBtn = () => {
-    const playAgainBtn = document.querySelector('.play-btn')
-    playAgainBtn.addEventListener('click', () => window.location.reload())
+	const playAgainBtn = document.querySelector('.play-btn')
+	playAgainBtn.addEventListener('click', () => window.location.reload())
+}
+
+// Display shadow on the winner picker
+const gameWinner = () => {
+	const choiceBtn = document.querySelectorAll('.game-results .choice-btn')
+
+	choiceBtn.forEach((e) => {
+		if (playerResults.innerHTML == 'you win') {
+			choiceBtn[0].classList.add('winner')
+		} else if (playerResults.innerHTML == 'you lose') {
+			choiceBtn[1].classList.add('winner')
+		}
+	})
 }
