@@ -1,5 +1,6 @@
 const selectBtn = document.querySelectorAll('[data-selection]')
 const playerResults = document.getElementById('player-results')
+const gameResults = document.querySelector('.game-results')
 
 // selects user choice
 let userPick = selectBtn.forEach((e) => {
@@ -36,7 +37,7 @@ const playGame = () => {
 			compWins()
 			break
 	}
-	displayGameChoices(userPick, compPick)
+    displayGameChoices(userPick, compPick)
 }
 
 const isDraw = () => {
@@ -57,7 +58,8 @@ const displayGameChoices = (userPick, compPick) => {
 	const choices = document.querySelectorAll('.picked-choice')
 
 	for (i = 0; i < choices.length; i++) {
-		game.style.display = 'none'
+        game.style.display = 'none'
+        gameResults.style.display = 'grid'
 		choices[0].innerHTML = `
                 <div class="choice">
                     <button class="choice-btn" data-selection="${userPick}">
@@ -65,7 +67,7 @@ const displayGameChoices = (userPick, compPick) => {
                             <img src="./images/icon-${userPick}.svg" alt="${userPick}">
                         </div>
                     </button> 
-                    <p>user picked</p>
+                    <p>you picked</p>
                 </div>`
 		choices[1].innerHTML = `
                 <div class="choice">
