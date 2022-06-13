@@ -1,6 +1,31 @@
 const selectBtn = document.querySelectorAll('[data-selection]')
 const playerResults = document.getElementById('player-results')
 const gameResults = document.querySelector('.game-results')
+let userScore = document.querySelector('.score_counter')
+const storedScore = JSON.parse(localStorage.getItem('UserScore'))
+
+let score 
+
+//load Local Storage score
+window.onload = () => {
+    if(localStorage.UserScore) {
+        score = storedScore
+    }else {
+        score = 0
+    }
+    updateScore()
+}
+
+//Save score to local storage
+const saveToLocalStorage = () => {
+    localStorage.setItem('UserScore', JSON.stringify(score))
+}
+
+//Update user score
+const updateScore = () => {
+    userScore.innerHTML = score
+    score++
+}
 
 // selects user choice
 let userPick = selectBtn.forEach((e) => {
@@ -29,7 +54,8 @@ const playGame = () => {
 		case 'rockscissors':
 		case 'paperrock':
 		case 'scissorspaper':
-			userWins()
+            userWins()
+            updateScore()
 			break
 		case 'rockpaper':
 		case 'paperscissors':
@@ -45,7 +71,8 @@ const isDraw = () => {
 }
 
 const userWins = () => {
-	playerResults.innerText = 'you win'
+    saveToLocalStorage()
+    playerResults.innerText = 'you win'
 }
 
 const compWins = () => {
@@ -85,8 +112,8 @@ const displayGameChoices = (userPick, compPick) => {
 
 //Resets Game
 const resetBtn = () => {
-	const playAgainBtn = document.querySelector('.play-btn')
-	playAgainBtn.addEventListener('click', () => window.location.reload())
+    const playAgainBtn = document.querySelector('.play-btn')
+    playAgainBtn.addEventListener('click', () => window.location.reload())
 }
 
 // Display shadow on the winner picker
