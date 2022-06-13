@@ -128,3 +128,11 @@ const gameWinner = () => {
 		}
 	})
 }
+
+//toggle modal
+document.querySelector('.rules').onclick = getModal
+document.querySelector('.close-modal-btn').onclick = getModal
+
+function getModal() {
+	document.querySelector('.modal').classList.toggle('show')
+}
