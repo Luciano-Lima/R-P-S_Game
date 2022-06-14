@@ -19,14 +19,6 @@
     --radialGradient: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
 }
 
-.attribution { 
-    font-size: 11px; text-align: center; 
-}
-
-.attribution a { 
-    color: hsl(228, 45%, 44%); 
-}
-
 *::before, ::after {
     box-sizing: board-box;
     margin: 0;
@@ -255,3 +247,44 @@ body {
     border: none;
     background:none;
 }
+
+/* Media Queries */
+@media (min-width:641px) {
+    .rules-btn {
+        right: 1rem;
+    }
+
+    .modal.show {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            'rules close'
+            'btns btns';
+        max-width: 430px;
+        max-height: 445px;
+        top: 353px;
+        border-radius: 5px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+    }
+
+    .modal-header {
+        grid-area: rules;
+        top: 0px;
+        left: 30px;
+    }
+
+    .close-modal-btn {
+        grid-area: close;
+        justify-self: end;
+        top: 40px;
+        right: 30px;
+    }
+
+    .modal.show img {
+        grid-area: btns;
+        justify-self: center;
+    }
+}
+
