@@ -68,6 +68,7 @@ const playGame = () => {
 
 const isDraw = () => {
 	playerResults.innerText = "it's a draw"
+	playerResults.style.fontSize = '1.8rem';
 }
 
 const userWins = () => {
