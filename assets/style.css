@@ -51,6 +51,7 @@ body {
     padding: 15px;
     border-radius: 5px;
     max-width: 600px;
+    margin: auto;
 }
 
 .header > img {
@@ -86,7 +87,8 @@ body {
         'rock rock';
     height: 17rem;
     position: relative;
-    margin-top: 3.2rem;
+    max-width: 600px;
+    margin: 3.2rem auto;
 }
 
 .game::before {
@@ -115,8 +117,6 @@ body {
                 inset 0px 3px 0px 1px hsl(0deg 0% 87%);
 }
 
-
-
 .choice-btn[data-selection="scissors"] {
     grid-area: scissors;
     box-shadow: 0px 0px 0px 15px hsl(39, 89%, 49%), 
@@ -131,7 +131,8 @@ body {
                 inset 0px 3px 0px 1px hsl(0deg 0% 87%);
 }
 
-.choice-btn.winner {
+
+.choice-btn[data-selection="rock"].winner {
     box-shadow: 0px 0px 0px 15px hsl(349deg 71% 52%), 
                 0px 5px 0px 15px hsl(349deg 70% 40%), 
                 0px 5px 0px 15px hsl(349deg 70% 40%), 
@@ -141,6 +142,29 @@ body {
                 inset 1px 4px 0px 1px hsl(0deg 0% 87%);
     z-index: -2;
 }
+
+.choice-btn[data-selection="paper"].winner {
+    box-shadow: 0px 0px 0px 15px hsl(230, 89%, 66%), 
+                0px 5px 0px 15px hsl(230, 66%, 48%), 
+                0px 5px 0px 15px hsl(349deg 70% 40%), 
+                0px 5px 0px 35px hsl(0deg 0% 24% / 50%), 
+                0px 5px 0px 75px hsl(0deg 0% 24% / 28%), 
+                0px 5px 0px 110px hsl(0deg 0% 24% / 26%),
+                inset 1px 4px 0px 1px hsl(0deg 0% 87%);
+    z-index: -2;
+}
+
+.choice-btn[data-selection="scissors"].winner {
+    box-shadow: 0px 0px 0px 15px hsl(39, 89%, 49%), 
+                0px 5px 0px 15px hsl(40, 84%, 40%), 
+                0px 5px 0px 15px hsl(349deg 70% 40%), 
+                0px 5px 0px 35px hsl(0deg 0% 24% / 50%), 
+                0px 5px 0px 75px hsl(0deg 0% 24% / 28%), 
+                0px 5px 0px 110px hsl(0deg 0% 24% / 26%),
+                inset 1px 4px 0px 1px hsl(0deg 0% 87%);
+    z-index: -2;
+}
+
 
 .choice {
     width: 3.5rem;
@@ -152,16 +176,13 @@ body {
 }
 
 /* game results */
-
-
 .game-results {
     display: none;
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
     grid-template-areas: 
         'you house'
-        'results results'
-        'btn btn';
+        'results results';
     white-space: nowrap;
     padding-top: 5rem;
     margin-top: 2.7rem;
@@ -181,16 +202,19 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 
-#player-results {
+.player-results {
     grid-area: results;
     font-size: 2.5rem;
     margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .play-btn {
-    grid-area: btn;
     padding: 15px 2.2rem;
     border-radius: 10px;
     border: none;
@@ -286,5 +310,55 @@ body {
         grid-area: btns;
         justify-self: center;
     }
-}
 
+    .game-results {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: 
+            'you results house';
+        white-space: nowrap;
+        padding-top: 5rem;
+        margin-top: 2.7rem;
+        align-items: center;
+        position: relative;
+        min-width: 800px;
+        margin: 2.7rem auto;
+    }
+
+    .container {
+        max-width: 800px;
+    }
+
+    .player-results {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 1;
+        margin-top: 1rem;
+    }
+
+    .game-results p {
+       position: absolute;
+       top: -140px;
+       font-size: .6rem;
+    }
+
+
+    .choice {
+        transform: scale(1.3);
+    }
+
+    .choice img {
+        transform: scale(.8);
+    }
+
+
+    #player-results {
+        margin-top: 0;
+    } 
+
+    .play-btn {
+        color: #af4646;
+    }
+
+}
