@@ -87,7 +87,7 @@ const displayGameChoices = (userPick, compPick) => {
 
 	for (i = 0; i < choices.length; i++) {
         game.style.display = 'none'
-        gameResults.style.display = 'grid'
+		gameResults.style.display = 'grid'
 		choices[0].innerHTML = `
                 <div class="choice">
                     <button class="choice-btn" data-selection="${userPick}">
