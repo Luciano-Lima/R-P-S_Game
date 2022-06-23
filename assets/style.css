@@ -94,7 +94,7 @@ body {
 }
 
 .game::before {
-    content: url(./images/bg-triangle.svg);
+    content: url(images/bg-triangle.svg);
     width: 100%;
     height: 100%;
     position: absolute;
